@@ -1,14 +1,17 @@
 
 all: compile link run clean
 
+SFML_INCLUDE = C:/SFML-2.6.1/include
+SFML_LIB = C:/SFML-2.6.1/lib
+
 compile:
-	g++ -c main.cpp Game.cpp maths/*.cpp algorithms/src/*.cpp utils/*.cpp -std=c++17 -g -Wall -m64 -I "C:/SFML-2.5.1/include" -I"fonts" -DSFML_STATIC 
+	g++ -c *.cpp algorithms/src/*.cpp maths/*.cpp utils/*.cpp -std=c++17 -g -Wall -m64 -I ${SFML_INCLUDE} -DSFML_STATIC
 
 link:
-	g++ *.o -o main -L C:/SFML-2.5.1/lib  -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lsfml-network-s -lsfml-audio-s -lsfml-system-s -lopengl32 -lfreetype -lwinmm -lgdi32 
+	g++ *.o -o main -L ${SFML_LIB}  -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lsfml-network-s -lsfml-audio-s -lopengl32 -lfreetype -lwinmm -lgdi32 
 
 clean:
-	del *.o 
+	del *.o *.exe
 	
 run:
 	./main

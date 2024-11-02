@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <algorithm>
-#include "../maths/Random.hpp"
+#include "../../maths/Random.hpp"
 
 class BogoSort {
     int a = 0;
